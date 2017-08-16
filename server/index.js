@@ -14,6 +14,8 @@ const app = Express();
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
+app.use(Express.static(__dirname + '/../static'))
+
 // Allow cross-origin requests.
 app.all('*', (req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');
@@ -45,7 +47,15 @@ app.post('/build', (req, res) => {
 		// Copy the base stencil.
 		yield new Promise((resolve, reject) => {
 			Exec('cp -rp qmk_firmware ' + TMP + key, (err, stdout, stderr) => {
-				if (err) return reject('Failed to initialize.');
+				if (err) return reject('Failed to initialize (1).');
+				resolve();
+			});
+		});
+
+		// Copy the extra stencil.
+		yield new Promise((resolve, reject) => {
+			Exec('cp -rp qmk_firmware_extra/* ' + TMP + key, (err, stdout, stderr) => {
+				if (err) return reject('Failed to initialize (2).');
 				resolve();
 			});
 		});
@@ -55,7 +65,7 @@ app.post('/build', (req, res) => {
 			yield new Promise((resolve, reject) => {
 				const fileName = file.replace('qmk_firmware', TMP + key);
 				Fs.writeFile(fileName, files[file], err => {
-					if (err) return reject('Failed to initialize.');
+					if (err) return reject('Failed to initialize (3): ' + fileName);
 					resolve();
 				});
 			});
