@@ -40,6 +40,11 @@ const C = {
 	F_CPU_16: 0,
 	F_CPU_8: 1,
 
+	// Bluetooth.
+	BLUETOOTH_NONE: 0,
+	BLUETOOTH_ADAFRUIT_BLE: 1,
+	BLUETOOTH_EZKEY_HID: 2,
+
 	// Pins.
 	PINS: {
 		0: [ // CONTROLLER_ATMEGA32U2

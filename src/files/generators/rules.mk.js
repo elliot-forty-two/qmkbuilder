@@ -22,6 +22,14 @@ class RulesMK extends Generator {
 			case C.F_CPU_8: f_cpu = '8000000'; break;
 		}
 
+		let bt_ble;
+		let bt_ezkey;
+		switch (keyboard.settings.bluetooth) {
+			case C.BLUETOOTH_NONE: bt_ble = 'no'; bt_ezkey = 'no'; break;
+			case C.BLUETOOTH_ADAFRUIT_BLE: bt_ble = 'yes'; bt_ezkey = 'no'; break;
+			case C.BLUETOOTH_EZKEY_HID: bt_ble = 'no'; bt_ezkey = 'yes'; break;
+		}
+
 		let bootloaderSize;
 		switch (keyboard.settings.bootloaderSize) {
 			case C.BOOTLOADER_512: bootloaderSize = '512'; break;
@@ -33,6 +41,8 @@ class RulesMK extends Generator {
 		return {
 			'mcu': mcu,
 			'f_cpu': f_cpu,
+			'bt_ble': bt_ble,
+			'bt_ezkey': bt_ezkey,
 			'bootloader_size': bootloaderSize,
 			'use_backlight': keyboard.pins.led ? 'yes' : 'no',
 			'use_rgb': keyboard.pins.rgb ? 'yes' : 'no'

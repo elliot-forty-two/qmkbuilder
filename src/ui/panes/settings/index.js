@@ -141,6 +141,21 @@ class Settings extends React.Component {
 			<Help>
 				Frequency of the MCU. If in doubt, choose <strong>16 MHz</strong>.
 			</Help>
+			<div style={{ height: '0.5rem' }}/>
+			<h2 style={{ width: '8rem', marginRight: '0.8rem' }}>Bluetooth</h2>
+			<select
+				style={{ width: '8rem' }}
+				value={ keyboard.settings.bluetooth }
+				onChange={ e => keyboard.setSetting('bluetooth', parseInt(e.target.value)) }>
+				<option value={ C.BLUETOOTH_NONE }>None</option>
+				<option value={ C.BLUETOOTH_ADAFRUIT_BLE }>Adafruit BLE</option>
+				<option value={ C.BLUETOOTH_EZKEY_HID }>Adafruit EZ-Key HID</option>
+			</select>
+			<Help>
+				<strong>Adafruit BLE</strong>: Enable Bluetooth with the Adafruit BLE boards
+				<br/>
+				<strong>Adafruit EZ-Key HID</strong>: Enable Bluetooth with the Adafruit EZ-Key HID
+			</Help>
 			<div style={{ height: '1.5rem' }}/>
 			Save your layout.
 			<div style={{ height: '0.5rem' }}/>

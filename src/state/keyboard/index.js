@@ -40,6 +40,7 @@ class Keyboard {
 			name: '',
 			bootloaderSize: C.BOOTLOADER_4096,
 			f_cpu: C.F_CPU_16,
+			bluetooth: C.BLUETOOTH_NONE,
 			rgbNum: 0,
 			backlightLevels: 3
 		};
