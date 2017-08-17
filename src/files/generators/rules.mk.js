@@ -16,6 +16,12 @@ class RulesMK extends Generator {
 			case C.CONTROLLER_AT90USB1286: mcu = 'at90usb1286'; break;
 		}
 
+		let f_cpu;
+		switch (keyboard.settings.f_cpu) {
+			case C.F_CPU_16: f_cpu = '16000000'; break;
+			case C.F_CPU_8: f_cpu = '8000000'; break;
+		}
+
 		let bootloaderSize;
 		switch (keyboard.settings.bootloaderSize) {
 			case C.BOOTLOADER_512: bootloaderSize = '512'; break;
@@ -26,6 +32,7 @@ class RulesMK extends Generator {
 
 		return {
 			'mcu': mcu,
+			'f_cpu': f_cpu,
 			'bootloader_size': bootloaderSize,
 			'use_backlight': keyboard.pins.led ? 'yes' : 'no',
 			'use_rgb': keyboard.pins.rgb ? 'yes' : 'no'

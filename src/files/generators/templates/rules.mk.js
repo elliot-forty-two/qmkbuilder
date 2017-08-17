@@ -14,7 +14,7 @@ MCU = %mcu%
 #     does not *change* the processor frequency - it should merely be updated to
 #     reflect the processor speed set externally so that the code can use accurate
 #     software delays.
-F_CPU = 16000000
+F_CPU = %f_cpu%
 
 #
 # LUFA specific

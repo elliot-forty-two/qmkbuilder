@@ -39,6 +39,7 @@ class Keyboard {
 			diodeDirection: C.DIODE_COL2ROW,
 			name: '',
 			bootloaderSize: C.BOOTLOADER_4096,
+			f_cpu: C.F_CPU_16,
 			rgbNum: 0,
 			backlightLevels: 3
 		};

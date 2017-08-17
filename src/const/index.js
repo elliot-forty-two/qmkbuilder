@@ -36,6 +36,10 @@ const C = {
 	CONTROLLER_ATMEGA32U4: 1,
 	CONTROLLER_AT90USB1286: 2,
 
+	// MCU Frequency.
+	F_CPU_16: 0,
+	F_CPU_8: 1,
+
 	// Pins.
 	PINS: {
 		0: [ // CONTROLLER_ATMEGA32U2
