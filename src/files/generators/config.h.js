@@ -10,6 +10,7 @@ class ConfigH extends Generator {
 		const keyboard = this.keyboard;
 
 		return {
+			'name': keyboard.settings.name,
 			'rows': keyboard.rows,
 			'cols': keyboard.cols,
 			'row_pins': keyboard.pins.row.join(', '),
