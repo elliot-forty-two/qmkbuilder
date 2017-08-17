@@ -18,14 +18,14 @@ class RulesMK extends Generator {
 
 		let f_cpu;
 		switch (keyboard.settings.f_cpu) {
-			case C.F_CPU_16: f_cpu = '16000000'; break;
+			default: case C.F_CPU_16: f_cpu = '16000000'; break;
 			case C.F_CPU_8: f_cpu = '8000000'; break;
 		}
 
 		let bt_ble;
 		let bt_ezkey;
 		switch (keyboard.settings.bluetooth) {
-			case C.BLUETOOTH_NONE: bt_ble = 'no'; bt_ezkey = 'no'; break;
+			default: case C.BLUETOOTH_NONE: bt_ble = 'no'; bt_ezkey = 'no'; break;
 			case C.BLUETOOTH_ADAFRUIT_BLE: bt_ble = 'yes'; bt_ezkey = 'no'; break;
 			case C.BLUETOOTH_EZKEY_HID: bt_ble = 'no'; bt_ezkey = 'yes'; break;
 		}
